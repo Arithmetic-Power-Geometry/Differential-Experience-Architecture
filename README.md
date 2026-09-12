@@ -6,15 +6,18 @@ This repository provides a reproducible computational testbed for Differential E
 
 The core local model is
 
-\[
+$$
 \Delta_A(\varepsilon)
 =
-D_{\mathrm{KL}}(P_\varepsilon \Vert P_0)
+D_{\mathrm{KL}}\!\left(P_\varepsilon \,\Vert\, P_0\right)
 \approx
-\frac{1}{2}\varepsilon^\top \boldsymbol{\chi}_A \varepsilon,
-\]
+\frac{1}{2}\,
+\varepsilon^{\top}
+\boldsymbol{\chi}_A
+\varepsilon.
+$$
 
-where \(\boldsymbol{\chi}_A\) is the Answerability Susceptibility Matrix. Its diagonal entries represent condition-specific local susceptibility, while its off-diagonal entries quantify local second-order interaction or nonseparability between experiential conditions in the specified intervention coordinates.
+Here, $\boldsymbol{\chi}_A$ is the **Answerability Susceptibility Matrix**. Its diagonal entries represent condition-specific local susceptibility, while its off-diagonal entries quantify local second-order interaction or nonseparability between experiential conditions in the specified intervention coordinates.
 
 ## Computational Validation
 
