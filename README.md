@@ -2,39 +2,42 @@
 
 **Differential Experience Architecture (DEA): deformation laws, susceptibility, and counterfactual answerability in controlled virtual worlds.**
 
-This repository provides a reproducible computational testbed for the theory of Differential Experience Architecture. It implements graded perturbations of the six Experience Architecture conditions — Difference (D), Availability (A), Orientation (O), Integration (I), Temporality (T), and Answerability (R) — and evaluates how those perturbations deform a probabilistic reachable-response field.
+This repository provides a reproducible computational testbed for Differential Experience Architecture (DEA). It implements graded perturbations of the six Experience Architecture conditions—Difference (D), Availability (A), Orientation (O), Integration (I), Temporality (T), and Answerability (R)—and evaluates how those perturbations deform a probabilistic reachable-response field.
 
 The core local model is
 
 \[
-\Delta_A(\varepsilon) = D_{KL}(P_\varepsilon\|P_0)
-\approx \frac12\varepsilon^T \Chi_A \varepsilon,
+\Delta_A(\varepsilon)
+=
+D_{\mathrm{KL}}(P_\varepsilon \Vert P_0)
+\approx
+\frac{1}{2}\varepsilon^\top \boldsymbol{\chi}_A \varepsilon,
 \]
 
-where \(\Chi_A\) is the Answerability Susceptibility Matrix. Diagonal entries represent condition-specific susceptibility and off-diagonal entries represent local interaction/nonseparability between experiential conditions.
+where \(\boldsymbol{\chi}_A\) is the Answerability Susceptibility Matrix. Its diagonal entries represent condition-specific local susceptibility, while its off-diagonal entries quantify local second-order interaction or nonseparability between experiential conditions in the specified intervention coordinates.
 
-## What is tested
+## Computational Validation
 
-The workflow executes the following computational checks:
+The reproducible workflow evaluates:
 
 1. local deformation-law verification;
 2. single-condition susceptibility recovery;
 3. paired-condition cross-susceptibility recovery;
-4. separable/null architecture test;
-5. coupled-architecture test;
-6. diagonal baseline versus full interaction model on held-out perturbations;
+4. separable/null architecture behavior;
+5. coupled-architecture behavior;
+6. diagonal-only versus full interaction models on held-out perturbations;
 7. finite-difference step-size convergence;
 8. Hessian symmetry;
-9. positive-semidefinite/eigenvalue checks;
-10. mutual-constraint ablation;
-11. sampling-noise robustness;
-12. determinant/rank/eigenvalue diagnostics;
-13. simulated controlled-virtual-world perturbations;
-14. matched conventional-metric comparison.
+9. positive-semidefinite and eigenvalue diagnostics;
+10. coupling ablation;
+11. finite-sample noise robustness; and
+12. determinant, rank, and eigenvalue diagnostics.
 
-The repository does **not** claim human-subject validation. Real participant VR data, gaze/controller logs, and physiological signals are not included.
+The computational experiments use controlled synthetic response architectures. They are designed to test whether the numerical implementation recovers the mathematical behavior predicted by the DEA construction under known separable, coupled, and ablated conditions.
 
-## Reproduce
+The repository does not claim human-subject validation. Human-participant virtual-reality data, gaze or controller logs, and physiological measurements are not included. Controlled virtual worlds with human participants constitute a future empirical validation stage.
+
+## Reproduction
 
 ```bash
 python -m pip install -r requirements.txt
@@ -42,28 +45,43 @@ python scripts/run_all.py
 pytest -q
 ```
 
-Generated files are written to `results/` and `figures/`.
+Generated computational outputs are written to `results/` and `figures/`.
 
 ## GitHub Actions
 
-Every push and pull request runs the complete test suite and reproduction script. The workflow uploads the generated results and figures as a downloadable artifact.
+The GitHub Actions workflow executes the automated test suite and reproduction pipeline. Generated numerical results and figures are preserved as workflow artifacts, providing an independently executable record of the computational validation.
 
-## Repository structure
+## Repository Structure
 
 ```text
 dea/
   core.py
   experiments.py
+
 scripts/
   run_all.py
+
 tests/
   test_core.py
   test_experiments.py
+
 results/
 figures/
-.github/workflows/
-  reproduce.yml
+
+.github/
+  workflows/
+    reproduce.yml
 ```
+
+## Reproducibility Scope
+
+The repository provides the computational implementation supporting the synthetic validation of DEA, including susceptibility estimation, separability and coupling tests, interaction recovery, predictive comparison, numerical convergence checks, ablation, and finite-sample robustness analysis.
+
+The computational results should be interpreted as consistency evidence for the proposed mathematical construction rather than evidence about human experiential organization.
+
+## Citation
+
+Akhtar, M. A. K., & Hans, A. (2026). *Differential Experience Architecture: Deformation Laws of Counterfactual Answerability in Controlled Virtual Worlds* (Version V1). Zenodo. https://doi.org/10.5281/zenodo.22726990
 
 ## License
 
