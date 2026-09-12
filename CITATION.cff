@@ -1,10 +1,23 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it."
+message: "If you use this software, please cite the software and the associated paper."
 title: "Differential Experience Architecture"
 type: software
 authors:
   - family-names: "Akhtar"
     given-names: "Mohammad Amir Khusru"
+  - family-names: "Hans"
+    given-names: "Arvind"
 year: 2026
 license: Apache-2.0
 repository-code: "https://github.com/Arithmetic-Power-Geometry/Differential-Experience-Architecture"
+preferred-citation:
+  type: article
+  title: "Differential Experience Architecture: Deformation Laws of Counterfactual Answerability in Controlled Virtual Worlds"
+  authors:
+    - family-names: "Akhtar"
+      given-names: "Mohammad Amir Khusru"
+    - family-names: "Hans"
+      given-names: "Arvind"
+  year: 2026
+  doi: "10.5281/zenodo.22726990"
+  url: "https://doi.org/10.5281/zenodo.22726990"
